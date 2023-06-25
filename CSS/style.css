@@ -1,12 +1,19 @@
 div.slider-wrapper{
     width: 100%;
     height: 60vh;
-    background-color: aqua;
 }
 
 div.slides-wrapper{
-    background-color: aquamarine;
+    position: relative;
     height: 100%;
+    border: 2px solid white;
+}
+
+div.slides-wrapper .slide-description{
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+    text-align: end;
 }
 
 div.slides-wrapper img{
@@ -17,7 +24,6 @@ div.slides-wrapper img{
 
 div.thumbnails-wrapper{
     position: relative;
-    background-color: blue;
     height: 100%;
 }
 
@@ -25,18 +31,26 @@ div.thumbnails-wrapper img{
     height: calc(100% / 5);
     width: 100%;
     object-fit: cover;
+    opacity: .5;
+    border: 5px solid white;
+    transition: all .5s ease;
+}
+
+div.thumbnails-wrapper img.active{
+    opacity: 1;
+    border: 2px solid white;
 }
 
 div.thumbnails-wrapper .button-up{
     position: absolute;
     left: 50%;
-    top: 2%;
+    top: 5%;
     transform: translate(-50%);
 }
 
 div.thumbnails-wrapper .button-down{
     position: absolute;
     left: 50%;
-    bottom: 2%;
+    bottom: 5%;
     transform: translate(-50%);
 }

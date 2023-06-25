@@ -25,15 +25,19 @@
             <div class="slider-wrapper m-auto row g-0">
                 <div class="slides-wrapper col-10">
                     <img :src="slides[activeIndex].image" :alt="`${slides[0].title}'slide`">
+                    <div class="slide-description">
+                        <h2 class="fw-bold text-white">{{ slides[activeIndex].title }}</h2>
+                        <p class="fw-bold text-white">{{ slides[activeIndex].text }}</p>
+                    </div>
                 </div>
                 <div class="thumbnails-wrapper col-2">
 
-                    <img v-for="(slide, index) in slides" :src="slide.image" :alt="`${slide.title}'slide`">
+                    <img v-for="(slide, index) in slides" :src="slide.image" :alt="`${slide.title}'slide`" :class="(activeIndex === index) ? 'active' : ''">
 
-                    <a href="#" @click="prevSlide(activeIndex)" class="button-up btn btn-light btn-sm rounded-5">
+                    <a href="#" role="button" @click="prevSlide(activeIndex)" class="button-up btn btn-primary btn-sm rounded-5">
                         <i class="fa-solid fa-chevron-up"></i>
                     </a>
-                    <a href="#" @click="nextSlide(activeIndex)" class="button-down btn btn-light btn-sm rounded-5">
+                    <a href="#" role="button" @click="nextSlide(activeIndex)" class="button-down btn btn-primary btn-sm rounded-5">
                         <i class="fa-solid fa-chevron-down"></i>
                     </a>
                 </div>
