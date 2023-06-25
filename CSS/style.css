@@ -6,7 +6,6 @@ div.slider-wrapper{
 div.slides-wrapper{
     position: relative;
     height: 100%;
-    border: 2px solid white;
 }
 
 div.slides-wrapper .slide-description{
@@ -27,18 +26,27 @@ div.thumbnails-wrapper{
     height: 100%;
 }
 
-div.thumbnails-wrapper img{
+div.thumbnails-wrapper div{
     height: calc(100% / 5);
+    width: 100%;
+    border: 7px solid rgb(255, 255, 255);
+}
+
+div.thumbnails-wrapper div.active{
+    height: calc(100% / 5);
+    width: 100%;
+    border: 0;
+}
+
+div.thumbnails-wrapper div img{
+    height: 100%;
     width: 100%;
     object-fit: cover;
     opacity: .5;
-    border: 5px solid white;
-    transition: all .5s ease;
 }
 
-div.thumbnails-wrapper img.active{
+div.thumbnails-wrapper div img.active{
     opacity: 1;
-    border: 2px solid white;
 }
 
 div.thumbnails-wrapper .button-up{

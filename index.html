@@ -22,7 +22,7 @@
             </h1>
         </header>
         <main class="container p-4">
-            <div class="slider-wrapper m-auto row g-0">
+            <div @mouseover="stopAutoPlay()" @mouseleave="startAutoPlay()" class="slider-wrapper m-auto row">
                 <div class="slides-wrapper col-10">
                     <img :src="slides[activeIndex].image" :alt="`${slides[0].title}'slide`">
                     <div class="slide-description">
@@ -31,13 +31,15 @@
                     </div>
                 </div>
                 <div class="thumbnails-wrapper col-2">
+                    <div v-for="(slide, index) in slides" :class="(activeIndex === index) ? 'active' : ''">
+                        <img :src="slide.image" :alt="`${slide.title}'slide`" 
+                        @click="changeSlide(index)" :class="(activeIndex === index) ? 'active' : ''">
+                    </div>
 
-                    <img v-for="(slide, index) in slides" :src="slide.image" :alt="`${slide.title}'slide`" :class="(activeIndex === index) ? 'active' : ''">
-
-                    <a href="#" role="button" @click="prevSlide(activeIndex)" class="button-up btn btn-primary btn-sm rounded-5">
+                    <a href="#" role="button" @click="prevSlide()" class="button-up btn btn-primary btn-sm rounded-5">
                         <i class="fa-solid fa-chevron-up"></i>
                     </a>
-                    <a href="#" role="button" @click="nextSlide(activeIndex)" class="button-down btn btn-primary btn-sm rounded-5">
+                    <a href="#" role="button" @click="nextSlide()" class="button-down btn btn-primary btn-sm rounded-5">
                         <i class="fa-solid fa-chevron-down"></i>
                     </a>
                 </div>
