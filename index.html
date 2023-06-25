@@ -24,7 +24,7 @@
         <main class="container p-4">
             <div @mouseover="stopAutoPlay()" @mouseleave="startAutoPlay()" class="slider-wrapper m-auto row">
                 <div class="slides-wrapper col-10">
-                    <img :src="slides[activeIndex].image" :alt="`${slides[0].title}'slide`">
+                    <img :src="slides[activeIndex].image" :alt="`${slides[activeIndex].title} slide`">
                     <div class="slide-description">
                         <h2 class="fw-bold text-white">{{ slides[activeIndex].title }}</h2>
                         <p class="fw-bold text-white">{{ slides[activeIndex].text }}</p>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="thumbnails-wrapper col-2">
                     <div v-for="(slide, index) in slides" :class="(activeIndex === index) ? 'active' : ''">
-                        <img :src="slide.image" :alt="`${slide.title}'slide`" 
+                        <img :src="slide.image" :alt="`${slide.title} slide`" 
                         @click="changeSlide(index)" :class="(activeIndex === index) ? 'active' : ''">
                     </div>
 
